@@ -1,11 +1,11 @@
 /**
- * *METODOS DE OBJETO
- *  Una función se define como un método de un objeto utilizando la sintaxis de 
- *  notación de punto.
- */ 
+ * *MÉTODOS DE CLASE
+ *  Las funciones se pueden definir como métodos de clase en una clase 
+ *  utilizando la sintaxis clase.
+*/
 
-const calculador = {
-    sum: function (a, b) {
-        return a + b ;
+class calculator {
+    sum (a , b) {
+        return a + b;
     }
 };
