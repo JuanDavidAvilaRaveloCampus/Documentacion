@@ -1,44 +1,45 @@
 /**
- * *CLAUSURAS
+ * *ÁMBITO LÉXICO DE THIS
  * 
- *  Las clausuras o cierres, es un concepto relaciondo con las funcoines y los ámbitos que suele costar 
- *  comprender cuando se empieza en JavaScript. Es importante tener las bases de funciones claras para 
- *  poder entender las bases de una clausura.
+ *  Una de las diferencias de las funciones flechas con respecto a las funciones tradicionales,
+ *  es el valor de la palabra clave this., que no siempre es la misma.
  * 
- *  A grandes rasgos, una clausura o cierre se define como una función que <<encierra>> variables en su 
- *  propio ámbito (y que continúan existiendo añun habiendo terminado la función). Por ejemplo:
+ *  Por ejemplo, si utilizamos una función de forma global en nuestro programa, no notaremos ninguna
+ *  diferencia:
  */
 
-// Clausura: Función incr()
-const incr = (function () {
-    let num = 0;
-    return function () {
-      num++;
-      return num;
-    };
-  })();
+// Si son funciones globales
+const a = function () {
+    console.log(this);
+  };
+  const b = () => {
+    console.log(this);
+  };
   
-  typeof incr; // 'function'
-  incr(); // 1
-  incr(); // 2
-  incr(); // 3
+  a(); // Window
+  b(); // Window
+
 
 /**
- *  Tenemos una función anónima que es también una función autoejecutable. Aunque parece una
- *  función por expresión, no lo es, ya que la variable incr está guardando lo que devuelve 
- *  la función anónima autoejecutable que a su vez, es otra función diferente.
+ *  Sin embargo, si utilizamos una función en el interior de un objeto, como se suele ser el 
+ *  caso más habitual, si encontraremos diferencias. Si prestamos atención, en la primera función,
+ *  donde se utiliza la función tradicional, el this. devuelve el objeto padre de la función.
  */
 
 /**
- *  La <<magia>> de las clausuras es que en el interior de la funcón autoejecutable estamos creadno
- *  una variable num que se guardará en el ámbito de dicha función, por lo tanto existirá con el 
- *  valor declarado: 0.
+ *  Por otro lado, en la segunda función, donde se utiliza una función flecha, el this no devuelve el 
+ *  objeto padre de la función, si no que devuelve Window.
  */
 
-/**
- *  Por lo tanto, en la variable incr tenemos una función opr expresión que además conocer el valor 
- *  de una variable num, que sólo existe dentro de incr. Si nos fijamos en la función que devolvemos,
- *  lo que hace es incrementar el valor de num y devolverlo. Como la variable incr es una clausura
- *  y mantiene la variable en su propio ámbito, veremos que a medida que ejecutamos incr(), los valores
- *  de num (que estamos devolviedo) conservan su valor y se van incrementando.
- */
+
+padre = {
+    a: function () {
+      console.log(this);
+    },
+    b: () => {
+      console.log(this);
+    },
+  };
+  
+  padre.a(); // padre
+  padre.b(); // Window
