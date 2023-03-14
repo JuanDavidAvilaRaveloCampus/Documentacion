@@ -1,11 +1,25 @@
 /**
- * * FUNCIONES COMO OBJETOS
- *  Como curiosidad, debes saber que se pueden declarar funciones como
- *  si fueran objetos. Sin embargo, es un enfoque que no se suele utilizar
- *  en producttión. Simplemente es inteserante saberlo para darse cuenta
- *  que en Js todo pueden ser objetos
+ * *FUNCIONES ANÓNINAS o FUNCIONES LAMBDA
+ *  Son un tipo de funcoines que se declaran sin nombre de función y se alojan en el interior
+ *  de una variable y haciendo referencia a ella cada vez que queramos utilizarla:
  */
 
-const saludar = nwe Function("return 'hola';");
+//Funciòn anònima "saludo"
+const saludo = function(){
+    return "hola";
+};
 
-saludar(); // 'Hola'
+saludo; // f() { return 'Hola'; }
+saludo(); //'Hola'
+
+/**
+ *  Observar que en la última ínea del ejemplo anterior, estamos ejecutando la variable, es decir
+ *  ejecutando la función que contiene la variable. Sin embargo, el la línea anterior hacemos referencia 
+ *  a la variable (sin ejecutarla, no hay paréntesis) y nos devuelve la función en sí.
+ * 
+ *  Este tipo de funciones sóolo están disponibles a partir de la inicialización de la variable.
+ *  Si <<ejecutamos la variable>> antes de declararla, nos dará error.
+ * 
+ * 
+ */
+
