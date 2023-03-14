@@ -1,16 +1,11 @@
 /**
- * *FUNCIONES POR EXPRESIÓN
- * 
- *  Son funciones que están almacenadas dentro 
- *  de variables. Básicamente es lo mismo que 
- *  una funcion, solo que ahora no se le asigna 
- *  su respectivo nombre, sino que ahora este 
- *  será el de su variable.
+ * * FUNCIONES COMO OBJETOS
+ *  Como curiosidad, debes saber que se pueden declarar funciones como
+ *  si fueran objetos. Sin embargo, es un enfoque que no se suele utilizar
+ *  en producttión. Simplemente es inteserante saberlo para darse cuenta
+ *  que en Js todo pueden ser objetos
  */
 
-//El segundo "saludar" (nombre de la función) se suele omitir
-const saludo = function saludar() {
-    return"Hola";
-};
+const saludar = nwe Function("return 'hola';");
 
-saludo(); //Hola
+saludar(); // 'Hola'
