@@ -1,21 +1,19 @@
-let metodo = {
-    "MÉTODO": "VALOR",
-    ".trimEnd()": "Remueve los espacios en blanco solo del final del string",
-    ".trimStart()": "Remueve los espacios en blanco solo del inicio del string"
-};
-console.table(metodo);
+/**
+ * *CREACIÓN DE FUNCIONES
+ * Hay varias formas de crear funciones en JavaScript: por declaraciòn (la màs usada 
+ * por principiantes), por expresiòn (la màs habitual en programadores con experiencia) 
+ * o mediante constructur de objeto (no recomendada):
+ * 
+*/
 
-// EJEMPLO 1
-// Con trimEnd
-let ejemplo = "HI CAMPERS       "
-let print = ejemplo.trimEnd()
-console.log("\nCon .trinmEnd() no se logra apreciar el tanto el cambio, para verlo realmente\ntoca ver el código js :D\n ")
-console.log(ejemplo)
-console.log(print)
+/**
+ * *CONSTRUCTOR         Y        DESCRIPCIÓN
+ * function                 Crea una funciòn mediante
+ * nombre(p1,p2...){}       una declaración
+ * var nombres =            Cdea una función mediante
+ * fucntion(p1,p2...){}     expresión
+ * new Function(p1,p2       Crea una función mediante
+ * ...,code);               un constructor de objeto
+ */
 
-// EJEMPLO_2 
-// Con trimStart
-let ejemplo2 = "           what's up nigga          "
-let print2 = ejemplo2.trimStart()
-console.log(ejemplo2)
-console.log(print2)
+
