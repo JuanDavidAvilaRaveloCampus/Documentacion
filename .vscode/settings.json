@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "Methods Change"
+        "Methods Change",
+        "Function Change"
     ]
 }

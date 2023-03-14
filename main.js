@@ -1,14 +1,16 @@
 /**
- * *Funciones por deflaración
- * Probablemente, la forma más ppopulas de estas tres,
- * y a la que estaremos acostumbrados si venimos de otros 
- * lenguajes de programación, es la primera es:
+ * *FUNCIONES POR EXPRESIÓN
  * 
- * * Creación de funciones por declaración:
+ *  Son funciones que están almacenadas dentro 
+ *  de variables. Básicamente es lo mismo que 
+ *  una funcion, solo que ahora no se le asigna 
+ *  su respectivo nombre, sino que ahora este 
+ *  será el de su variable.
  */
-function saludar(){
+
+//El segundo "saludar" (nombre de la función) se suele omitir
+const saludo = function saludar() {
     return"Hola";
 };
-saludar(); // "Hola"
-typeof saludar; // 'function'
 
+saludo(); //Hola
