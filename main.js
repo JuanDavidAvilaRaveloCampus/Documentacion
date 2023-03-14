@@ -1,45 +1,42 @@
 /**
- * *ÁMBITO LÉXICO DE THIS
- * 
- *  Una de las diferencias de las funciones flechas con respecto a las funciones tradicionales,
- *  es el valor de la palabra clave this., que no siempre es la misma.
- * 
- *  Por ejemplo, si utilizamos una función de forma global en nuestro programa, no notaremos ninguna
- *  diferencia:
+ * * Object.fromEntries()
+ *  metodo que transforma una lista de pares con [clave-valor] en un objeto.
  */
 
-// Si son funciones globales
-const a = function () {
-    console.log(this);
-  };
-  const b = () => {
-    console.log(this);
-  };
+const entries = new Map([
+    ['foo', 'bar'],
+    ['baz', 42]
+  ]);
   
-  a(); // Window
-  b(); // Window
-
+  const obj1 = Object.fromEntries(entries);
+  
+  console.log(obj1);
+  // Expected output: Object { foo: "bar", baz: 42 }
+  
 
 /**
- *  Sin embargo, si utilizamos una función en el interior de un objeto, como se suele ser el 
- *  caso más habitual, si encontraremos diferencias. Si prestamos atención, en la primera función,
- *  donde se utiliza la función tradicional, el this. devuelve el objeto padre de la función.
+ * *    Este método toma una lista de pares como clave-valor y devulve un nuevo objeto 
+ *  *   cuyas propiedades son dadas por éstas entradas. El argumento iterador se espera
+ * *    que sea un objeto que implemente un método @@iterador, que devuelve un objeto
+ * *    iterador, que produce un objeto tipo array de dos elementos, donde el primer
+ * *    elemento es un valor que se usará como la clave de la propiedad, y el segundo 
+ * *    elemento es el valor a asociar con esa clave de propiedad.
+ * 
+ *  ! Object.fromEntries() realiza lo inverso de Object.entries().
  */
 
-/**
- *  Por otro lado, en la segunda función, donde se utiliza una función flecha, el this no devuelve el 
- *  objeto padre de la función, si no que devuelve Window.
- */
+// Convirtiendo un Map en un Objeto
+// Con Object.fromEntries, puedes convertir de un Map (en-US) a un Object:
+
+const map = new Map([ ['foo', 'bar'], ['baz', 42] ]);
+const obj2 = Object.fromEntries(map);
+console.log(obj2); // { foo: "bar", baz: 42 }
 
 
-padre = {
-    a: function () {
-      console.log(this);
-    },
-    b: () => {
-      console.log(this);
-    },
-  };
-  
-  padre.a(); // padre
-  padre.b(); // Window
+// Convirtiendo un Arreglo en un Objeto
+// Con Object.fromEntries, puedes convertir de un Array a un Object:
+
+const arr = [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ];
+const obj = Object.fromEntries(arr);
+console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+
