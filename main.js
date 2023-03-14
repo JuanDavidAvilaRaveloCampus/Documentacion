@@ -1,7 +1,11 @@
 /**
- * *FUNCIONES FLECHA:
- *  Son la forma más reciente de escribir funciones en JavaScript. Se utilizan para crear 
- *  funiones de una forma más conscisa.
- */
+ * *METODOS DE OBJETO
+ *  Una función se define como un método de un objeto utilizando la sintaxis de 
+ *  notación de punto.
+ */ 
 
-let suma = (a, b) => a + b;
+const calculador = {
+    sum: function (a, b) {
+        return a + b ;
+    }
+};
