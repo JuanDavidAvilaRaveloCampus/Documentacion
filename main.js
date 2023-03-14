@@ -1,19 +1,14 @@
 /**
- * *CREACIÓN DE FUNCIONES
- * Hay varias formas de crear funciones en JavaScript: por declaraciòn (la màs usada 
- * por principiantes), por expresiòn (la màs habitual en programadores con experiencia) 
- * o mediante constructur de objeto (no recomendada):
+ * *Funciones por deflaración
+ * Probablemente, la forma más ppopulas de estas tres,
+ * y a la que estaremos acostumbrados si venimos de otros 
+ * lenguajes de programación, es la primera es:
  * 
-*/
-
-/**
- * *CONSTRUCTOR         Y        DESCRIPCIÓN
- * function                 Crea una funciòn mediante
- * nombre(p1,p2...){}       una declaración
- * var nombres =            Cdea una función mediante
- * fucntion(p1,p2...){}     expresión
- * new Function(p1,p2       Crea una función mediante
- * ...,code);               un constructor de objeto
+ * * Creación de funciones por declaración:
  */
-
+function saludar(){
+    return"Hola";
+};
+saludar(); // "Hola"
+typeof saludar; // 'function'
 
