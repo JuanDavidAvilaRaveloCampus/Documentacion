@@ -10,63 +10,47 @@ let operacion = prompt(
     `Ingrese el numero de la operación que desea realizar:\n\n1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir`
 );
 
-console.log(calcular(data, data2, operacion));
+data = parseInt(data);
 
-function calcular(a, b, c) {
-    a = data;
-    b = data2;
-    c = operacion;
-    let resultado = 0;
+// console.log(calcular(data, data2, operacion));
+let contador= (a,b,c)=>{
+    if( operacion == '1') {
+        sumar(data,data2);
+        
+    } else if( operacion == '2'){
+        restar(data,data2);
+    } else if( operacion == '3'){
+        multiplicar(data,data2);
+    } else if( operacion == '4'){
+        dividir(data,data2);
+    };
+};
 
-    if (c == '1') {
-        resultado = sumar(a, b);
-        c = 'sumar';
-    } else if (c == '2') {
-        resultado = restar(a, b);
-        c = 'restar';
-    } else if (c == '3') {
-        resultado = multiplicar(a, b);
-        c = 'multiplicar';
-    } else if (c == '4') {
-        resultado = dividir(a, b);
-        c = 'dividir';
-    }
-    console.log(`El resultado de ${c} ${a} y ${b} es: ${resultado}`);
-}
+let conversor = (p1)=>{
+    return Number(p1)
+};
 
-let conversion_a_numero = (a)=>{
-    if (isNaN(a)){
-        return a;
-    } else {
-        a = 0;
-        return Number(0)
-    }
-}
-
-let sumar = (a,b)=>{
-
-    conversion_a_numero(a);
-    conversion_a_numero(b);
-
+let sumar = (a,b) =>{
     return a + b;
+};
 
-}
-let restar = (a,b)=>{
-
-    conversion_a_numero(a);
-    conversion_a_numero(b);
+let restar = (a,b) =>{
+    conversor(a);
+    conversor(b);
     return a - b;
-}
-let multiplicar = (a,b)=>{
+};
 
-    conversion_a_numero(a);
-    conversion_a_numero(b);
+let multiplicar = (a,b) =>{
+    conversor(a);
+    conversor(b);
     return a * b;
-}
-let dividir = (a,b)=>{
+};
 
-    conversion_a_numero(a);
-    conversion_a_numero(b);
+let dividir = (a,b) =>{
+    conversor(a);
+    conversor(b);
     return a / b;
-}
+};
 
+
+console.log(contador(data, data2, operacion));
