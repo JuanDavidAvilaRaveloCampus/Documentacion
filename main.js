@@ -1,42 +1,72 @@
-/**
- * * Object.fromEntries()
- *  metodo que transforma una lista de pares con [clave-valor] en un objeto.
- */
+// CALLBACKS
 
-const entries = new Map([
-    ['foo', 'bar'],
-    ['baz', 42]
-  ]);
-  
-  const obj1 = Object.fromEntries(entries);
-  
-  console.log(obj1);
-  // Expected output: Object { foo: "bar", baz: 42 }
-  
+console.log(
+    `<------------ CALLBACKS ------------>\n  Los callbacks son funciones pasadas como argumentos a otras funciones para que sean ejecutadas en algún momento dentro de la ejecución de la función principal.\n\n  Los callbacks aseguran que una función no se va a ejecutar antes de que se complete una tarea, sino que se ejecutará justo después justo después de que la tarea se haya completado. Nos ayuda a desarrollar código JavaScript asícrono y nos mantiene a salvo de problemas y errores.`
+);
 
-/**
- * *    Este método toma una lista de pares como clave-valor y devulve un nuevo objeto 
- *  *   cuyas propiedades son dadas por éstas entradas. El argumento iterador se espera
- * *    que sea un objeto que implemente un método @@iterador, que devuelve un objeto
- * *    iterador, que produce un objeto tipo array de dos elementos, donde el primer
- * *    elemento es un valor que se usará como la clave de la propiedad, y el segundo 
- * *    elemento es el valor a asociar con esa clave de propiedad.
- * 
- *  ! Object.fromEntries() realiza lo inverso de Object.entries().
- */
+let data = prompt("Ingrese el primer dato");
+let data2 = prompt("ingrese el segundo dato");
+let operacion = prompt(
+    `Ingrese el numero de la operación que desea realizar:\n\n1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir`
+);
 
-// Convirtiendo un Map en un Objeto
-// Con Object.fromEntries, puedes convertir de un Map (en-US) a un Object:
+console.log(calcular(data, data2, operacion));
 
-const map = new Map([ ['foo', 'bar'], ['baz', 42] ]);
-const obj2 = Object.fromEntries(map);
-console.log(obj2); // { foo: "bar", baz: 42 }
+function calcular(a, b, c) {
+    a = data;
+    b = data2;
+    c = operacion;
+    let resultado = 0;
 
+    if (c == '1') {
+        resultado = sumar(a, b);
+        c = 'sumar';
+    } else if (c == '2') {
+        resultado = restar(a, b);
+        c = 'restar';
+    } else if (c == '3') {
+        resultado = multiplicar(a, b);
+        c = 'multiplicar';
+    } else if (c == '4') {
+        resultado = dividir(a, b);
+        c = 'dividir';
+    }
+    console.log(`El resultado de ${c} ${a} y ${b} es: ${resultado}`);
+}
 
-// Convirtiendo un Arreglo en un Objeto
-// Con Object.fromEntries, puedes convertir de un Array a un Object:
+let conversion_a_numero = (a)=>{
+    if (isNaN(a)){
+        return a;
+    } else {
+        a = 0;
+        return Number(0)
+    }
+}
 
-const arr = [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ];
-const obj = Object.fromEntries(arr);
-console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+let sumar = (a,b)=>{
+
+    conversion_a_numero(a);
+    conversion_a_numero(b);
+
+    return a + b;
+
+}
+let restar = (a,b)=>{
+
+    conversion_a_numero(a);
+    conversion_a_numero(b);
+    return a - b;
+}
+let multiplicar = (a,b)=>{
+
+    conversion_a_numero(a);
+    conversion_a_numero(b);
+    return a * b;
+}
+let dividir = (a,b)=>{
+
+    conversion_a_numero(a);
+    conversion_a_numero(b);
+    return a / b;
+}
 
