@@ -1,56 +1,26 @@
-// CALLBACKS
+console.log(`Es un objeto que representa un valor que no puede estar disponible todaví, pero que se espera para que esté disponible en algún momento en el futuro\nLas promesas son una forma de manejar el asincronismo de una manera más legible y estructurada.\n\nLas promesas tienen 3 estados posibles.\n1. "Pending"(rechazada): Es el estado inicial de una promesa.\n2. "Cumplia": Cuando se resuelve satisfactoriamente(retorna el valor deseado)\n3. "Rechazada": Cuando no se puede resolver u ocurre algún error\n\nExisten metodos que se deben hacer cuando la promesa es "Cumplida" o "Rechazada". Estos metodos son:\nthen(): Recibe una función que se ejecutará cuando la promesa se cumpla satisfactoriamente mientras que catch() recibe una funcion que se ejecutará cuando la promesa sea rechazada.\n\nLas promesas también pueden ser encadenadas, lo que significa que puede realizar multiples operaciónes asincrónicas secuencialmente, de modo que la segunda operación se ejecutará solo después que la primera haya terminado satisfactoriamente.`);
 
-console.log(
-    `<------------ CALLBACKS ------------>\n  Los callbacks son funciones pasadas como argumentos a otras funciones para que sean ejecutadas en algún momento dentro de la ejecución de la función principal.\n\n  Los callbacks aseguran que una función no se va a ejecutar antes de que se complete una tarea, sino que se ejecutará justo después justo después de que la tarea se haya completado. Nos ayuda a desarrollar código JavaScript asícrono y nos mantiene a salvo de problemas y errores.`
-);
+function get_Random_Number(){
+    return new Promise((resolve, reject) =>{
+        setTimeout(()=>{
+            const random_Number =Math.floor(Math.random() * 10) + 1;
+        if (random_Number > 5) {
+            resolve (random_Number);
+        } else {
+            reject ('El número generado es menor o igual a 5');
+        }
+    }, 2000);
+    });
+}
 
-let data = prompt("Ingrese el primer dato");
-let data2 = prompt("ingrese el segundo dato");
-let operacion = prompt(
-    `Ingrese el numero de la operación que desea realizar:\n\n1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir`
-);
-
-data = parseInt(data);
-
-// console.log(calcular(data, data2, operacion));
-let contador= (a,b,c)=>{
-    if( operacion == '1') {
-        sumar(data,data2);
-        
-    } else if( operacion == '2'){
-        restar(data,data2);
-    } else if( operacion == '3'){
-        multiplicar(data,data2);
-    } else if( operacion == '4'){
-        dividir(data,data2);
-    };
-};
-
-let conversor = (p1)=>{
-    return Number(p1)
-};
-
-let sumar = (a,b) =>{
-    return a + b;
-};
-
-let restar = (a,b) =>{
-    conversor(a);
-    conversor(b);
-    return a - b;
-};
-
-let multiplicar = (a,b) =>{
-    conversor(a);
-    conversor(b);
-    return a * b;
-};
-
-let dividir = (a,b) =>{
-    conversor(a);
-    conversor(b);
-    return a / b;
-};
-
-
-console.log(contador(data, data2, operacion));
+console.log('Iniciando...');
+get_Random_Number()
+    .them((num) =>{
+        console.log(`Numero generado : ${num}`);
+    })
+    .catch((err) =>{
+            console.log(`Error: ${err}`);
+    }) 
+    .finally(() =>{
+        console.log(`Terminado`);
+    });
