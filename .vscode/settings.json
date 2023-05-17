@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "Methods Change",
-        "Function Change"
+        "Function Change",
+        "PHP"
     ]
 }
