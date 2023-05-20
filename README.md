@@ -1,41 +1,49 @@
-## Detalles y Uso
+# METODOS:
 
-A continuación se detallan cada uno de los elementos del array junto con su significado y cómo se utilizan:
 
-- **Host**: Representa el nombre del host o servidor.
-- **Connection**: Especifica el tipo de conexión establecida con el servidor.
-- **sec-ch-ua**: Indica la cadena de caracteres del agente de usuario utilizado.
-- **sec-ch-ua-mobile**: Indica si el agente de usuario es un dispositivo móvil.
-- **sec-ch-ua-platform**: Indica la plataforma del sistema operativo del agente de usuario.
-- **Upgrade-Insecure-Requests**: Especifica si se deben actualizar las solicitudes inseguras.
-- **User-Agent**: Contiene información detallada sobre el agente de usuario utilizado.
-- **Accept**: Define los tipos de contenido que el cliente puede recibir.
-- **Sec-Fetch-Site**: Indica el sitio de destino para la solicitud de recurso.
-- **Sec-Fetch-Mode**: Especifica el modo de recuperación del recurso.
-- **Sec-Fetch-User**: Indica si el usuario es un agente de usuario automatizado.
-- **Sec-Fetch-Dest**: Define el tipo de recurso solicitado.
-- **Accept-Encoding**: Especifica los algoritmos de compresión que el cliente acepta.
-- **Accept-Language**: Define los idiomas preferidos del cliente.
 
-## Ejemplos de Uso
+### $_GET: 
 
-Aquí tienes algunos ejemplos de cómo acceder a los elementos del array en diferentes lenguajes:
+Este método se utiliza para recuperar información del servidor. La data que se busque y retorne, va a ser adjuntada a la URL, por lo que este método no es muy seguro.
 
-### PHP
+Ejemplos: 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script src="main.js" defer></script> -->
+    
+</head>
+<body>
+    <form action="api.php" method="get">
+        <input type="text" name="username"><br>
+        <input type="password" name="password"><br>
+        <input type="submit" value="Log in">
+    </form>
+
+    <pre></pre>
+</body>
+</html>
+```
 
 ```php
-$host = $array['Host'];
-echo "Host: " . $host;
+<?php 
 
-$userAgent = $array['User-Agent'];
-echo "User-Agent: " . $userAgent;
+    $username = $_GET["username"];
+    $password = $_GET["password"];
+
+    echo "Usuario: {$username}<br>";
+    echo "Password: {$password}<br>";
 ```
 
+Aplicando este método, la URL se verá algo así:
 
-
-### JavaScript
-
-```javascript
-const host = array
+```URL
+http://localhost/SkylAb-105/Ejercicios/api.php?username=Juan&password=123
 ```
-

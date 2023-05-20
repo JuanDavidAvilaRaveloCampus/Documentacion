@@ -1,17 +1,30 @@
-let myForm = document.querySelector("#myForm");
-myForm.addEventListener('submit', async(e)=>{
-    e.preventDefault();
 
-    let myHeaders = new Headers({"Content-Type": "application/json"});
-    let data = Object.fromEntries(new FormData(e.target));
+
+
+
+// let formulario = document.querySelector('form');
+// let myHeader = new Headers({
+//     "Content-Type" : "application/json"
+// });
+
+// let config = {
+//     Headers : myHeader,
+// };
+
+// formulario.addEventListener('submit', async(e)=>{
+//     // console.log(data);
+//     e.preventDefault();
     
-    let config = {
-        method: "POST",
-        headers: myHeaders,
-        body: JSON.stringify(data)
-    }
+//     let data = Object.fromEntries(new FormData(e.target));
 
-    let res = await (await fetch("api.php", config)).text();
-    document.querySelector("pre").innerHTML = res;
-});
 
+//     let api = await fetch("api.php", config);
+
+//     config.method = "POST"; 
+//     config.body = JSON.stringify(data);
+    
+//     let res = await (api).text();
+//     let pre = document.querySelector('pre').innerHTML = res;
+
+//     // console.log();
+// });
