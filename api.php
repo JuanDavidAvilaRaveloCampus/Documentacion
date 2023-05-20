@@ -1,9 +1,10 @@
 <?php 
 
-$item = "Pizza";
-$price = 5.99;
-$quantity = $_POST["quantity"];
-$total = $quantity * $price;
+$x = $_POST ["x"];
+$y = $_POST ["y"];
+// $z = $_POST ["z"];
+$total = null;
 
-echo "You have ordered: {$quantity} * {$item}/s<br>";
-echo "Your total is: \${$total}";
+// $total = abs($x);
+$total = rand($x, $y);
+echo $total;
