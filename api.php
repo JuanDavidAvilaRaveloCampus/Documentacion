@@ -1,35 +1,80 @@
 <?php
 
-    $nombreCliente = "Campers Campuslands";
+    // * isset()
+    // Este método verifica si el array tiene contenido y retorna un booleano
 
-    //Conocer el tamaño en carácteres de un String
-    echo strlen($nombreCliente)."<br>";
-    var_dump($nombreCliente)."<br>";
+    //aquí el condicional debe de retornar true, por ende se ejecuta la primera condición
+    $variable = "Hi";
 
-    // Eliminar espacio en blanco
-    $texo = trim($nombreCliente)."<br>";
-    echo strlen($texo)."<br>";
+    if (isset($variable)){
+        echo "La variable tiene contenido dentro <br>";
+    } else {
+        echo "La variable está vacía <br>";
+    };
 
-    //Convierte un String en Mayúsculas
-    echo strtoupper($nombreCliente)."<br>";
+    //aquí el condicional debe de retornar false, por ende se ejecuta la segunda condición
+    $variable = "";
 
-    //Convierte un String en minúsculas
-    echo strtolower($nombreCliente)."<br>";
+    if (isset($variable)){
+        echo "La variable tiene contenido dentro <br>";
+    } else {
+        echo "La variable está vacía <br>";
+    };
 
-    $mail_1 = "correo@correo.com";
-    $mail_2 = "Correo@correo.com";
 
-    var_dump(strtolower($mail_1) === strtolower($mail_2));
-    echo str_replace('Juan', 'J', $nombreCliente);
+    //  EJEMPLO CON EMPTY
+    // ? empy verifica si una variable está vacía, siendo el caso retorna true, si no, false
+    $variable_2 = '';
+    if (isset($variable_2)){
+        echo "La variable_2 tiene contenido dentro <br>";
+    } else {
+        echo "La variable_2 está vacía <br>";
+    };
 
-    //Revisa si un string existe o no
-    echo strpos($nombreCliente, 'Pedro');
+    $variable_2 = 'asdf';
+    if (isset($variable_2)){
+        echo "La variable_2 tiene contenido dentro <br>";
+    } else {
+        echo "La variable_2 está vacía <br>";
+    };
+    
+    echo "<br>";
 
-    $tipoCliente = "Premium - Empresarial";
+
+    //! AQUÍ OTRO EJEMPO
+
+    $clientes_1 = [];
+    $clientes_2 = array ();
+    $clientes_3 = array ('Pedro', 'Juan', 'Karen');
+    $cliente = [
+        'nombre' => 'Juan',
+        'saldo' => 200
+    ];
+
+    // Empty - Verifica si un arreglo está vacío
+    var_dump( empty($clientes_1)."<br>");
+    var_dump( empty($clientes_2)."<br>");
+    var_dump( empty($clientes_3)."<br>");
+
+    /*
+        *Isset - Revisar si un arreglo está creado o una propiedad está definida
+    */ 
+
+    echo "<br>";
+    var_dump( isset($clientes_1)."<br>");
+    var_dump( isset($clientes_2)."<br>");
+    var_dump( isset($clientes_3)."<br>");
 
     echo "<br>";
     echo "<br>";
+    /*
+        ? Isset - Perime revisar si una propiedad de un arreglo asociativo, existe!
+    */
 
-    echo "El Cliente ".$nombreCliente." es ".$tipoCliente."<br>";
-    echo "El Cliente {$nombreCliente} es ${tipoCliente}";
+    var_dump( isset($clientes_3['nombre'])."<br>");
+    var_dump( isset($clientes_3['codigo'])."<br>");
+
+
+
+    
 ?>
